@@ -9,11 +9,10 @@
 
 	<camel:camelContext xmlns="http://camel.apache.org/schema/spring">
 		<camel:propertyPlaceholder id="properties" location="classpath:endpoints.properties"/>
+		<camel:endpoint id="mail" uri="smtp://{{smtp.uri.host}}:{{smtp.uri.port}}/"/>
 		<camel:route>
-			<!-- incoming requests from the servlet is routed -->
 			<camel:from uri="servlet:///mail" />
-			<camel:to uri="smtp://{{smtp.uri.host}}:{{smtp.uri.port}}/"/>
+			<camel:to uri="mail"/>
 		</camel:route>
 	</camel:camelContext>
-
 </beans>
