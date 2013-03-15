@@ -7,12 +7,50 @@
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
 
+	<bean id="handle" class="org.nirvana.notification.mail.Handler"></bean>
+	<bean id="handle2" class="org.nirvana.notification.mail.Handler2"></bean>
+	<bean id="parseHandler" class="org.nirvana.notification.mail.ParseHandler"></bean>
+
+	<bean id="emailResolver" class="org.nirvana.notification.mail.EmailResolver"></bean>
+
+	<bean id="mongodb" class="org.springframework.data.mongodb.core.MongoFactoryBean">
+		<property name="host" value="localhost" />
+	</bean>
+
 	<camel:camelContext xmlns="http://camel.apache.org/schema/spring">
-		<camel:propertyPlaceholder id="properties" location="classpath:endpoints.properties"/>
-		<camel:endpoint id="mail" uri="smtp://{{smtp.uri.host}}:{{smtp.uri.port}}/"/>
+		<camel:propertyPlaceholder id="properties"
+			location="classpath:notification.properties" />
+		<camel:endpoint id="mail"
+			uri="smtp://{{smtp.uri.host}}:{{smtp.uri.port}}/" />
+
 		<camel:route>
 			<camel:from uri="servlet:///mail" />
-			<camel:to uri="mail"/>
+			<camel:choice>
+				<camel:when>
+					<camel:header>async</camel:header>
+					<camel:bean ref="emailResolver" />
+					<camel:to
+						uri="mongodb:mongodb?database=argus&amp;collection=notification.email&amp;operation=insert" />
+				</camel:when>
+				<camel:otherwise>
+					<camel:to uri="mail" />
+				</camel:otherwise>
+			</camel:choice>
+		</camel:route>
+
+		<camel:route>
+			<camel:from uri="timer:email?fixedRate=true&amp;period=60000" />
+			<camel:bean ref="parseHandler" method="findAll" />
+			<camel:to
+				uri="mongodb:mongodb?database=argus&amp;collection=notification.email&amp;operation=findAll" />
+			<camel:split>
+				<camel:method ref="parseHandler" method="spliter" />
+				<camel:bean ref="parseHandler" method="convertToMap" />
+				<camel:to uri="mail" />
+				<camel:bean ref="parseHandler" method="update" />
+				<camel:to
+					uri="mongodb:mongodb?database=argus&amp;collection=notification.email&amp;operation=update" />
+			</camel:split>
 		</camel:route>
 	</camel:camelContext>
 </beans>
