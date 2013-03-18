@@ -1,36 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Configures the Camel Context -->
-
-<beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camel="http://camel.apache.org/schema/spring"
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:camel="http://camel.apache.org/schema/spring"
 	xsi:schemaLocation="
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
 
-	<bean id="handle" class="org.nirvana.notification.mail.Handler"></bean>
-	<bean id="handle2" class="org.nirvana.notification.mail.Handler2"></bean>
-	<bean id="parseHandler" class="org.nirvana.notification.mail.ParseHandler"></bean>
-
-	<bean id="emailResolver" class="org.nirvana.notification.mail.EmailResolver"></bean>
-
+	<!-- Datasource -->
 	<bean id="mongodb" class="org.springframework.data.mongodb.core.MongoFactoryBean">
 		<property name="host" value="localhost" />
 	</bean>
 
+	<bean id="emailResolver" class="org.nirvana.notification.mail.EmailResolver"></bean>
+
+	<!-- camel context -->
 	<camel:camelContext xmlns="http://camel.apache.org/schema/spring">
-		<camel:propertyPlaceholder id="properties"
-			location="classpath:notification.properties" />
-		<camel:endpoint id="mail"
-			uri="smtp://{{smtp.uri.host}}:{{smtp.uri.port}}/" />
+		<camel:propertyPlaceholder id="properties" location="classpath:notification.properties" />
+		<camel:endpoint id="mail" uri="smtp://{{smtp.uri.host}}:{{smtp.uri.port}}/" />
 
 		<camel:route>
 			<camel:from uri="servlet:///mail" />
 			<camel:choice>
 				<camel:when>
 					<camel:header>async</camel:header>
-					<camel:bean ref="emailResolver" />
+					<camel:bean ref="emailResolver" method="insert" />
 					<camel:to
-						uri="mongodb:mongodb?database=argus&amp;collection=notification.email&amp;operation=insert" />
+						uri="mongodb:mongodb?database={{mail.storage.database}}&amp;collection={{mail.storage.collection}}&amp;operation=insert" />
 				</camel:when>
 				<camel:otherwise>
 					<camel:to uri="mail" />
@@ -39,17 +33,25 @@
 		</camel:route>
 
 		<camel:route>
-			<camel:from uri="timer:email?fixedRate=true&amp;period=60000" />
-			<camel:bean ref="parseHandler" method="findAll" />
+			<camel:from uri="timer:email?fixedRate=true&amp;period={{mail.poll.interval}}" />
+			<camel:bean ref="emailResolver" method="findAll" />
 			<camel:to
-				uri="mongodb:mongodb?database=argus&amp;collection=notification.email&amp;operation=findAll" />
+				uri="mongodb:mongodb?database={{mail.storage.database}}&amp;collection={{mail.storage.collection}}&amp;operation=findAll" />
 			<camel:split>
-				<camel:method ref="parseHandler" method="spliter" />
-				<camel:bean ref="parseHandler" method="convertToMap" />
-				<camel:to uri="mail" />
-				<camel:bean ref="parseHandler" method="update" />
-				<camel:to
-					uri="mongodb:mongodb?database=argus&amp;collection=notification.email&amp;operation=update" />
+				<camel:method ref="emailResolver" method="spliter" />
+				<camel:bean ref="emailResolver" method="convertToMap" />
+				<camel:doTry>
+					<camel:to uri="mail" />
+					<camel:bean ref="emailResolver" method="update" />
+					<camel:to
+						uri="mongodb:mongodb?database={{mail.storage.database}}&amp;collection={{mail.storage.collection}}&amp;operation=update" />
+					<camel:doCatch>
+						<camel:exception>java.lang.Exception</camel:exception>
+						<camel:bean ref="emailResolver" method="error" />
+						<camel:to
+							uri="mongodb:mongodb?database={{mail.storage.database}}&amp;collection={{mail.storage.collection}}&amp;operation=update" />
+					</camel:doCatch>
+				</camel:doTry>
 			</camel:split>
 		</camel:route>
 	</camel:camelContext>
