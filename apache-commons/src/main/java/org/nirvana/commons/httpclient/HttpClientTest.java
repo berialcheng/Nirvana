@@ -17,7 +17,7 @@ public class HttpClientTest
         throws Exception
     {
         HttpClient client = new DefaultHttpClient();
-        HttpGet method = new HttpGet("http://sbs-tangseng:28017/enotifydb/asset/");
+        HttpGet method = new HttpGet("http://jagger:8080/manager/html");
         HttpResponse response = client.execute(method);
         HttpEntity entity = response.getEntity();
         System.out.println(response.getStatusLine());
