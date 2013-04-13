@@ -1,0 +1,1910 @@
+
+<!-- saved from url=(0062)http://mleibman.github.com/SlickGrid/examples/example-grouping -->
+<html>
+<body>
+	<div class="webkit-line-gutter-backdrop"></div>
+	<table>
+		<tbody>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span
+					class="webkit-html-doctype">&lt;!DOCTYPE HTML&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;html&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;head&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;meta
+						<span class="webkit-html-attribute-name">http-equiv</span>="<span
+						class="webkit-html-attribute-value">Content-Type</span>" <span
+						class="webkit-html-attribute-name">content</span>="<span
+						class="webkit-html-attribute-value">text/html;
+							charset=iso-8859-1</span>"&gt;
+				</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;title&gt;</span>SlickGrid
+					example: Grouping<span class="webkit-html-tag">&lt;/title&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;link
+						<span class="webkit-html-attribute-name">rel</span>="<span
+						class="webkit-html-attribute-value">stylesheet</span>" <span
+						class="webkit-html-attribute-name">href</span>="<a
+						class="webkit-html-attribute-value webkit-html-resource-link"
+						target="_blank"
+						href="http://mleibman.github.com/SlickGrid/slick.grid.css">../slick.grid.css</a>"
+						<span class="webkit-html-attribute-name">type</span>="<span
+						class="webkit-html-attribute-value">text/css</span>"/&gt;
+				</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;link
+						<span class="webkit-html-attribute-name">rel</span>="<span
+						class="webkit-html-attribute-value">stylesheet</span>" <span
+						class="webkit-html-attribute-name">href</span>="<a
+						class="webkit-html-attribute-value webkit-html-resource-link"
+						target="_blank"
+						href="http://mleibman.github.com/SlickGrid/controls/slick.pager.css">../controls/slick.pager.css</a>"
+						<span class="webkit-html-attribute-name">type</span>="<span
+						class="webkit-html-attribute-value">text/css</span>"/&gt;
+				</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;link
+						<span class="webkit-html-attribute-name">rel</span>="<span
+						class="webkit-html-attribute-value">stylesheet</span>" <span
+						class="webkit-html-attribute-name">href</span>="<a
+						class="webkit-html-attribute-value webkit-html-resource-link"
+						target="_blank"
+						href="http://mleibman.github.com/SlickGrid/css/smoothness/jquery-ui-1.8.16.custom.css">../css/smoothness/jquery-ui-1.8.16.custom.css</a>"
+						<span class="webkit-html-attribute-name">type</span>="<span
+						class="webkit-html-attribute-value">text/css</span>"/&gt;
+				</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;link
+						<span class="webkit-html-attribute-name">rel</span>="<span
+						class="webkit-html-attribute-value">stylesheet</span>" <span
+						class="webkit-html-attribute-name">href</span>="<a
+						class="webkit-html-attribute-value webkit-html-resource-link"
+						target="_blank"
+						href="http://mleibman.github.com/SlickGrid/examples/examples.css">examples.css</a>"
+						<span class="webkit-html-attribute-name">type</span>="<span
+						class="webkit-html-attribute-value">text/css</span>"/&gt;
+				</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;link
+						<span class="webkit-html-attribute-name">rel</span>="<span
+						class="webkit-html-attribute-value">stylesheet</span>" <span
+						class="webkit-html-attribute-name">href</span>="<a
+						class="webkit-html-attribute-value webkit-html-resource-link"
+						target="_blank"
+						href="http://mleibman.github.com/SlickGrid/controls/slick.columnpicker.css">../controls/slick.columnpicker.css</a>"
+						<span class="webkit-html-attribute-name">type</span>="<span
+						class="webkit-html-attribute-value">text/css</span>"/&gt;
+				</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;style&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">.cell-effort-driven {</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">text-align: center;</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">}</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><br></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">.slick-group-title[level='0'] {</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">font-weight: bold;</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">}</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><br></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">.slick-group-title[level='1'] {</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">text-decoration: underline;</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">}</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><br></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">.slick-group-title[level='2'] {</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">font-style: italic;</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">}</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;/style&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;/head&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;body&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;div
+						<span class="webkit-html-attribute-name">style</span>="<span
+						class="webkit-html-attribute-value">position:relative</span>"&gt;
+				</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;div
+						<span class="webkit-html-attribute-name">style</span>="<span
+						class="webkit-html-attribute-value">width:600px;</span>"&gt;
+				</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;div
+						<span class="webkit-html-attribute-name">class</span>="<span
+						class="webkit-html-attribute-value">grid-header</span>" <span
+						class="webkit-html-attribute-name">style</span>="<span
+						class="webkit-html-attribute-value">width:100%</span>"&gt;
+				</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;label&gt;</span>SlickGrid<span
+					class="webkit-html-tag">&lt;/label&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;/div&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;div
+						<span class="webkit-html-attribute-name">id</span>="<span
+						class="webkit-html-attribute-value">myGrid</span>" <span
+						class="webkit-html-attribute-name">style</span>="<span
+						class="webkit-html-attribute-value">width:100%;height:500px;</span>"&gt;
+				</span><span class="webkit-html-tag">&lt;/div&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;div
+						<span class="webkit-html-attribute-name">id</span>="<span
+						class="webkit-html-attribute-value">pager</span>" <span
+						class="webkit-html-attribute-name">style</span>="<span
+						class="webkit-html-attribute-value">width:100%;height:20px;</span>"&gt;
+				</span><span class="webkit-html-tag">&lt;/div&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;/div&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><br></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;div
+						<span class="webkit-html-attribute-name">class</span>="<span
+						class="webkit-html-attribute-value">options-panel</span>" <span
+						class="webkit-html-attribute-name">style</span>="<span
+						class="webkit-html-attribute-value">width:450px;</span>"&gt;
+				</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;b&gt;</span>Options:<span
+					class="webkit-html-tag">&lt;/b&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;hr/&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;div
+						<span class="webkit-html-attribute-name">style</span>="<span
+						class="webkit-html-attribute-value">padding:6px;</span>"&gt;
+				</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;label
+						<span class="webkit-html-attribute-name">style</span>="<span
+						class="webkit-html-attribute-value">width:200px;float:left</span>"&gt;
+				</span>Show tasks with % at least: <span class="webkit-html-tag">&lt;/label&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><br></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;div
+						<span class="webkit-html-attribute-name">style</span>="<span
+						class="webkit-html-attribute-value">padding:2px;</span>"&gt;
+				</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;div
+						<span class="webkit-html-attribute-name">style</span>="<span
+						class="webkit-html-attribute-value">width:100px;display:inline-block;</span>"
+						<span class="webkit-html-attribute-name">id</span>="<span
+						class="webkit-html-attribute-value">pcSlider</span>"&gt;
+				</span><span class="webkit-html-tag">&lt;/div&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;/div&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;br/&gt;</span><span
+					class="webkit-html-tag">&lt;br/&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;button
+						<span class="webkit-html-attribute-name">onclick</span>="<span
+						class="webkit-html-attribute-value">loadData(50)</span>"&gt;
+				</span>50 rows<span class="webkit-html-tag">&lt;/button&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;button
+						<span class="webkit-html-attribute-name">onclick</span>="<span
+						class="webkit-html-attribute-value">loadData(50000)</span>"&gt;
+				</span>50k rows<span class="webkit-html-tag">&lt;/button&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;button
+						<span class="webkit-html-attribute-name">onclick</span>="<span
+						class="webkit-html-attribute-value">loadData(500000)</span>"&gt;
+				</span>500k rows<span class="webkit-html-tag">&lt;/button&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;hr/&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;button
+						<span class="webkit-html-attribute-name">onclick</span>="<span
+						class="webkit-html-attribute-value">dataView.setGrouping([])</span>"&gt;
+				</span>Clear grouping<span class="webkit-html-tag">&lt;/button&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;br/&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;button
+						<span class="webkit-html-attribute-name">onclick</span>="<span
+						class="webkit-html-attribute-value">groupByDuration()</span>"&gt;
+				</span>Group by duration &amp; sort groups by value<span
+					class="webkit-html-tag">&lt;/button&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;br/&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;button
+						<span class="webkit-html-attribute-name">onclick</span>="<span
+						class="webkit-html-attribute-value">groupByDurationOrderByCount(false)</span>"&gt;
+				</span>Group by duration &amp; sort groups by count<span
+					class="webkit-html-tag">&lt;/button&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;br/&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;button
+						<span class="webkit-html-attribute-name">onclick</span>="<span
+						class="webkit-html-attribute-value">groupByDurationOrderByCount(true)</span>"&gt;
+				</span>Group by duration &amp; sort groups by count, aggregate</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">collapsed</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;/button&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;br/&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;br/&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;button
+						<span class="webkit-html-attribute-name">onclick</span>="<span
+						class="webkit-html-attribute-value">groupByDurationEffortDriven()</span>"&gt;
+				</span>Group by duration then effort-driven<span class="webkit-html-tag">&lt;/button&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;br/&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;button
+						<span class="webkit-html-attribute-name">onclick</span>="<span
+						class="webkit-html-attribute-value">groupByDurationEffortDrivenPercent()</span>"&gt;
+				</span>Group by duration then effort-driven then percent.<span
+					class="webkit-html-tag">&lt;/button&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;br/&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;br/&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;button
+						<span class="webkit-html-attribute-name">onclick</span>="<span
+						class="webkit-html-attribute-value">dataView.collapseAllGroups()</span>"&gt;
+				</span>Collapse all groups<span class="webkit-html-tag">&lt;/button&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;br/&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;button
+						<span class="webkit-html-attribute-name">onclick</span>="<span
+						class="webkit-html-attribute-value">dataView.expandAllGroups()</span>"&gt;
+				</span>Expand all groups<span class="webkit-html-tag">&lt;/button&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;br/&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;/div&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;hr/&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;h2&gt;</span>Demonstrates:<span
+					class="webkit-html-tag">&lt;/h2&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;ul&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;li&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">Fully dynamic and interactive
+					multi-level grouping with filtering and aggregates over <span
+					class="webkit-html-tag">&lt;b&gt;</span>50'000<span
+					class="webkit-html-tag">&lt;/b&gt;</span> items<span
+					class="webkit-html-tag">&lt;br&gt;</span>
+				</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">Each grouping level can have
+					its own aggregates (over child rows, child groups, or all
+					descendant rows).<span class="webkit-html-tag">&lt;br&gt;</span>
+				</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">Personally, this is just the
+					coolest slickest thing I've ever seen done with DHTML grids!</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;/li&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;/ul&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;/div&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;/div&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><br></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><br></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;script
+						<span class="webkit-html-attribute-name">src</span>="<a
+						class="webkit-html-attribute-value webkit-html-resource-link"
+						target="_blank"
+						href="http://mleibman.github.com/SlickGrid/lib/firebugx.js">../lib/firebugx.js</a>"&gt;
+				</span><span class="webkit-html-tag">&lt;/script&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><br></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;script
+						<span class="webkit-html-attribute-name">src</span>="<a
+						class="webkit-html-attribute-value webkit-html-resource-link"
+						target="_blank"
+						href="http://mleibman.github.com/SlickGrid/lib/jquery-1.7.min.js">../lib/jquery-1.7.min.js</a>"&gt;
+				</span><span class="webkit-html-tag">&lt;/script&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;script
+						<span class="webkit-html-attribute-name">src</span>="<a
+						class="webkit-html-attribute-value webkit-html-resource-link"
+						target="_blank"
+						href="http://mleibman.github.com/SlickGrid/lib/jquery-ui-1.8.16.custom.min.js">../lib/jquery-ui-1.8.16.custom.min.js</a>"&gt;
+				</span><span class="webkit-html-tag">&lt;/script&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;script
+						<span class="webkit-html-attribute-name">src</span>="<a
+						class="webkit-html-attribute-value webkit-html-resource-link"
+						target="_blank"
+						href="http://mleibman.github.com/SlickGrid/lib/jquery.event.drag-2.0.min.js">../lib/jquery.event.drag-2.0.min.js</a>"&gt;
+				</span><span class="webkit-html-tag">&lt;/script&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><br></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;script
+						<span class="webkit-html-attribute-name">src</span>="<a
+						class="webkit-html-attribute-value webkit-html-resource-link"
+						target="_blank"
+						href="http://mleibman.github.com/SlickGrid/slick.core.js">../slick.core.js</a>"&gt;
+				</span><span class="webkit-html-tag">&lt;/script&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;script
+						<span class="webkit-html-attribute-name">src</span>="<a
+						class="webkit-html-attribute-value webkit-html-resource-link"
+						target="_blank"
+						href="http://mleibman.github.com/SlickGrid/slick.formatters.js">../slick.formatters.js</a>"&gt;
+				</span><span class="webkit-html-tag">&lt;/script&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;script
+						<span class="webkit-html-attribute-name">src</span>="<a
+						class="webkit-html-attribute-value webkit-html-resource-link"
+						target="_blank"
+						href="http://mleibman.github.com/SlickGrid/slick.editors.js">../slick.editors.js</a>"&gt;
+				</span><span class="webkit-html-tag">&lt;/script&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;script
+						<span class="webkit-html-attribute-name">src</span>="<a
+						class="webkit-html-attribute-value webkit-html-resource-link"
+						target="_blank"
+						href="http://mleibman.github.com/SlickGrid/plugins/slick.cellrangedecorator.js">../plugins/slick.cellrangedecorator.js</a>"&gt;
+				</span><span class="webkit-html-tag">&lt;/script&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;script
+						<span class="webkit-html-attribute-name">src</span>="<a
+						class="webkit-html-attribute-value webkit-html-resource-link"
+						target="_blank"
+						href="http://mleibman.github.com/SlickGrid/plugins/slick.cellrangeselector.js">../plugins/slick.cellrangeselector.js</a>"&gt;
+				</span><span class="webkit-html-tag">&lt;/script&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;script
+						<span class="webkit-html-attribute-name">src</span>="<a
+						class="webkit-html-attribute-value webkit-html-resource-link"
+						target="_blank"
+						href="http://mleibman.github.com/SlickGrid/plugins/slick.cellselectionmodel.js">../plugins/slick.cellselectionmodel.js</a>"&gt;
+				</span><span class="webkit-html-tag">&lt;/script&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;script
+						<span class="webkit-html-attribute-name">src</span>="<a
+						class="webkit-html-attribute-value webkit-html-resource-link"
+						target="_blank"
+						href="http://mleibman.github.com/SlickGrid/slick.grid.js">../slick.grid.js</a>"&gt;
+				</span><span class="webkit-html-tag">&lt;/script&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;script
+						<span class="webkit-html-attribute-name">src</span>="<a
+						class="webkit-html-attribute-value webkit-html-resource-link"
+						target="_blank"
+						href="http://mleibman.github.com/SlickGrid/slick.groupitemmetadataprovider.js">../slick.groupitemmetadataprovider.js</a>"&gt;
+				</span><span class="webkit-html-tag">&lt;/script&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;script
+						<span class="webkit-html-attribute-name">src</span>="<a
+						class="webkit-html-attribute-value webkit-html-resource-link"
+						target="_blank"
+						href="http://mleibman.github.com/SlickGrid/slick.dataview.js">../slick.dataview.js</a>"&gt;
+				</span><span class="webkit-html-tag">&lt;/script&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;script
+						<span class="webkit-html-attribute-name">src</span>="<a
+						class="webkit-html-attribute-value webkit-html-resource-link"
+						target="_blank"
+						href="http://mleibman.github.com/SlickGrid/controls/slick.pager.js">../controls/slick.pager.js</a>"&gt;
+				</span><span class="webkit-html-tag">&lt;/script&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;script
+						<span class="webkit-html-attribute-name">src</span>="<a
+						class="webkit-html-attribute-value webkit-html-resource-link"
+						target="_blank"
+						href="http://mleibman.github.com/SlickGrid/controls/slick.columnpicker.js">../controls/slick.columnpicker.js</a>"&gt;
+				</span><span class="webkit-html-tag">&lt;/script&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><br></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;script&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">var dataView;</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">var grid;</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">var data = [];</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">var columns = [</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">{id: "sel", name: "#", field:
+					"num", cssClass: "cell-selection", width: 40, resizable: false,
+					selectable: false, focusable: false },</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">{id: "title", name: "Title",
+					field: "title", width: 70, minWidth: 50, cssClass: "cell-title",
+					sortable: true, editor: Slick.Editors.Text},</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">{id: "duration", name:
+					"Duration", field: "duration", width: 70, sortable: true,
+					groupTotalsFormatter: sumTotalsFormatter},</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">{id: "%", name: "% Complete",
+					field: "percentComplete", width: 80, formatter:
+					Slick.Formatters.PercentCompleteBar, sortable: true,
+					groupTotalsFormatter: avgTotalsFormatter},</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">{id: "start", name: "Start",
+					field: "start", minWidth: 60, sortable: true},</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">{id: "finish", name: "Finish",
+					field: "finish", minWidth: 60, sortable: true},</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">{id: "cost", name: "Cost",
+					field: "cost", width: 90, sortable: true, groupTotalsFormatter:
+					sumTotalsFormatter},</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">{id: "effort-driven", name:
+					"Effort Driven", width: 80, minWidth: 20, maxWidth: 80, cssClass:
+					"cell-effort-driven", field: "effortDriven", formatter:
+					Slick.Formatters.Checkmark, sortable: true}</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">];</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><br></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">var options = {</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">enableCellNavigation: true,</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">editable: true</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">};</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><br></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">var sortcol = "title";</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">var sortdir = 1;</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">var percentCompleteThreshold =
+					0;</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">var
+					prevPercentCompleteThreshold = 0;</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><br></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">function
+					avgTotalsFormatter(totals, columnDef) {</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">var val = totals.avg &amp;&amp;
+					totals.avg[columnDef.field];</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">if (val != null) {</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">return "avg: " +
+					Math.round(val) + "%";</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">}</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">return "";</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">}</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><br></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">function
+					sumTotalsFormatter(totals, columnDef) {</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">var val = totals.sum &amp;&amp;
+					totals.sum[columnDef.field];</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">if (val != null) {</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">return "total: " +
+					((Math.round(parseFloat(val)*100)/100));</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">}</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">return "";</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">}</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><br></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">function myFilter(item, args) {</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">return item["percentComplete"]
+					&gt;= args.percentComplete;</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">}</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><br></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">function percentCompleteSort(a,
+					b) {</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">return a["percentComplete"] -
+					b["percentComplete"];</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">}</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><br></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">function comparer(a, b) {</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">var x = a[sortcol], y =
+					b[sortcol];</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">return (x == y ? 0 : (x &gt; y
+					? 1 : -1));</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">}</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><br></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">function groupByDuration() {</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">dataView.setGrouping({</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">getter: "duration",</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">formatter: function (g) {</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">return "Duration: " + g.value +
+					" &lt;span style='color:green'&gt;(" + g.count + "
+					items)&lt;/span&gt;";</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">},</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">aggregators: [</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">new
+					Slick.Data.Aggregators.Avg("percentComplete"),</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">new
+					Slick.Data.Aggregators.Sum("cost")</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">],</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">aggregateCollapsed: false</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">});</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">}</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><br></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">function
+					groupByDurationOrderByCount(aggregateCollapsed) {</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">dataView.setGrouping({</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">getter: "duration",</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">formatter: function (g) {</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">return "Duration: " + g.value +
+					" &lt;span style='color:green'&gt;(" + g.count + "
+					items)&lt;/span&gt;";</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">},</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">comparer: function (a, b) {</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">return a.count - b.count;</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">},</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">aggregators: [</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">new
+					Slick.Data.Aggregators.Avg("percentComplete"),</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">new
+					Slick.Data.Aggregators.Sum("cost")</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">],</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">aggregateCollapsed:
+					aggregateCollapsed</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">});</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">}</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><br></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">function
+					groupByDurationEffortDriven() {</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">dataView.setGrouping([</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">{</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">getter: "duration",</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">formatter :function (g) {</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">return "Duration: " + g.value +
+					" &lt;span style='color:green'&gt;(" + g.count + "
+					items)&lt;/span&gt;";</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">},</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">aggregators: [</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">new
+					Slick.Data.Aggregators.Sum("duration"),</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">new
+					Slick.Data.Aggregators.Sum("cost")</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">],</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">aggregateCollapsed: true</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">},</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">{</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">getter: "effortDriven",</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">formatter :function (g) {</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">return "Effort-Driven: " +
+					(g.value ? "True" : "False") + " &lt;span style='color:green'&gt;("
+					+ g.count + " items)&lt;/span&gt;";</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">},</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">aggregators: [</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">new
+					Slick.Data.Aggregators.Avg("percentComplete"),</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">new
+					Slick.Data.Aggregators.Sum("cost")</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">],</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">collapsed: true</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">}</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">]);</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">}</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><br></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">function
+					groupByDurationEffortDrivenPercent() {</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">dataView.setGrouping([</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">{</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">getter: "duration",</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">formatter: function (g) {</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">return "Duration: " + g.value +
+					" &lt;span style='color:green'&gt;(" + g.count + "
+					items)&lt;/span&gt;";</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">},</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">aggregators: [</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">new
+					Slick.Data.Aggregators.Sum("duration"),</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">new
+					Slick.Data.Aggregators.Sum("cost")</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">],</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">aggregateCollapsed: true</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">},</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">{</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">getter: "effortDriven",</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">formatter: function (g) {</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">return "Effort-Driven: " +
+					(g.value ? "True" : "False") + " &lt;span style='color:green'&gt;("
+					+ g.count + " items)&lt;/span&gt;";</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">},</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">aggregators :[</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">new
+					Slick.Data.Aggregators.Sum("duration"),</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">new
+					Slick.Data.Aggregators.Sum("cost")</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">]</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">},</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">{</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">getter: "percentComplete",</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">formatter: function (g) {</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">return "% Complete: " + g.value
+					+ " &lt;span style='color:green'&gt;(" + g.count + "
+					items)&lt;/span&gt;";</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">},</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">aggregators: [</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">new
+					Slick.Data.Aggregators.Avg("percentComplete")</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">],</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">aggregateCollapsed: true,</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">collapsed: true</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">}</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">]);</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">}</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><br></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">function loadData(count) {</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">var someDates = ["01/01/2009",
+					"02/02/2009", "03/03/2009"];</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">data = [];</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">// prepare the data</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">for (var i = 0; i &lt; count;
+					i++) {</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">var d = (data[i] = {});</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><br></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">d["id"] = "id_" + i;</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">d["num"] = i;</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">d["title"] = "Task " + i;</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">d["duration"] =
+					Math.round(Math.random() * 14);</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">d["percentComplete"] =
+					Math.round(Math.random() * 100);</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">d["start"] = someDates[
+					Math.floor((Math.random()*2)) ];</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">d["finish"] = someDates[
+					Math.floor((Math.random()*2)) ];</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">d["cost"] =
+					Math.round(Math.random() * 10000) / 100;</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">d["effortDriven"] = (i % 5 ==
+					0);</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">}</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">dataView.setItems(data);</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">}</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><br></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><br></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">$(".grid-header .ui-icon")</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">.addClass("ui-state-default
+					ui-corner-all")</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">.mouseover(function (e) {</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">
+					$(e.target).addClass("ui-state-hover")</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">})</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">.mouseout(function (e) {</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">
+					$(e.target).removeClass("ui-state-hover")</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">});</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><br></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">$(function () {</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">var groupItemMetadataProvider =
+					new Slick.Data.GroupItemMetadataProvider();</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">dataView = new
+					Slick.Data.DataView({</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">groupItemMetadataProvider:
+					groupItemMetadataProvider,</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">inlineFilters: true</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">});</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">grid = new
+					Slick.Grid("#myGrid", dataView, columns, options);</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><br></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">// register the group item
+					metadata provider to add expand/collapse group handlers</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">
+					grid.registerPlugin(groupItemMetadataProvider);</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">grid.setSelectionModel(new
+					Slick.CellSelectionModel());</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><br></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">var pager = new
+					Slick.Controls.Pager(dataView, grid, $("#pager"));</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">var columnpicker = new
+					Slick.Controls.ColumnPicker(columns, grid, options);</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><br></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><br></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">grid.onSort.subscribe(function
+					(e, args) {</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">sortdir = args.sortAsc ? 1 :
+					-1;</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">sortcol = args.sortCol.field;</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><br></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">if ($.browser.msie &amp;&amp;
+					$.browser.version &lt;= 8) {</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">// using temporary
+					Object.prototype.toString override</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">// more limited and does
+					lexicographic sort only by default, but can be much faster</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><br></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">var percentCompleteValueFn =
+					function () {</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">var val =
+					this["percentComplete"];</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">if (val &lt; 10) {</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">return "00" + val;</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">} else if (val &lt; 100) {</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">return "0" + val;</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">} else {</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">return val;</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">}</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">};</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><br></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">// use numeric sort of % and
+					lexicographic for everything else</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">dataView.fastSort((sortcol ==
+					"percentComplete") ? percentCompleteValueFn : sortcol,
+					args.sortAsc);</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">}</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">else {</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">// using native sort with
+					comparer</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">// preferred method but can be
+					very slow in IE with huge datasets</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">dataView.sort(comparer,
+					args.sortAsc);</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">}</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">});</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><br></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">// wire up model events to
+					drive the grid</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">
+					dataView.onRowCountChanged.subscribe(function (e, args) {</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">grid.updateRowCount();</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">grid.render();</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">});</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><br></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">
+					dataView.onRowsChanged.subscribe(function (e, args) {</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">
+					grid.invalidateRows(args.rows);</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">grid.render();</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">});</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><br></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><br></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">var h_runfilters = null;</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><br></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">// wire up the slider to apply
+					the filter to the model</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">
+					$("#pcSlider,#pcSlider2").slider({</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">"range": "min",</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">"slide": function (event, ui) {</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">
+					Slick.GlobalEditorLock.cancelCurrentEdit();</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><br></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">if (percentCompleteThreshold !=
+					ui.value) {</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">
+					window.clearTimeout(h_runfilters);</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">h_runfilters =
+					window.setTimeout(filterAndUpdate, 10);</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">percentCompleteThreshold =
+					ui.value;</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">}</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">}</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">});</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><br></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><br></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">function filterAndUpdate() {</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">var isNarrowing =
+					percentCompleteThreshold &gt; prevPercentCompleteThreshold;</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">var isExpanding =
+					percentCompleteThreshold &lt; prevPercentCompleteThreshold;</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">var renderedRange =
+					grid.getRenderedRange();</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><br></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">dataView.setFilterArgs({</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">percentComplete:
+					percentCompleteThreshold</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">});</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">dataView.setRefreshHints({</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">ignoreDiffsBefore:
+					renderedRange.top,</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">ignoreDiffsAfter:
+					renderedRange.bottom + 1,</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">isFilterNarrowing: isNarrowing,</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">isFilterExpanding: isExpanding</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">});</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">dataView.refresh();</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><br></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">prevPercentCompleteThreshold =
+					percentCompleteThreshold;</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">}</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><br></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">// initialize the model after
+					all the events have been hooked up</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">dataView.beginUpdate();</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">dataView.setFilter(myFilter);</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">dataView.setFilterArgs({</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">percentComplete:
+					percentCompleteThreshold</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">});</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">loadData(50);</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">groupByDuration();</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">dataView.endUpdate();</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><br></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">
+					$("#gridContainer").resizable();</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content">})</td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;/script&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;/body&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"><span class="webkit-html-tag">&lt;/html&gt;</span></td>
+			</tr>
+			<tr>
+				<td class="webkit-line-number"></td>
+				<td class="webkit-line-content"></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
