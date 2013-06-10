@@ -5,3 +5,7 @@ target
 #file
 .classpath
 .project
+
+
+##Grails eclipse
+target-eclipse
