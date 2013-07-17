@@ -18,6 +18,6 @@
 
 	<servlet-mapping>
 		<servlet-name>helloworld</servlet-name>
-		<url-pattern>/service/*</url-pattern>
+		<url-pattern>/helloworld/*</url-pattern>
 	</servlet-mapping>
 </web-app>
