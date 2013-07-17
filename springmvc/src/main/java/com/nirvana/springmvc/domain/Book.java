@@ -2,6 +2,10 @@ package com.nirvana.springmvc.domain;
 
 public class Book {
 	private String name;
+	
+	public Book(){
+		
+	}
 
 	public Book(String name) {
 		this.name = name;
