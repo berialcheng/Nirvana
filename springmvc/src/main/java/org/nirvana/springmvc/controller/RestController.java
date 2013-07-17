@@ -3,6 +3,7 @@ package org.nirvana.springmvc.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -57,5 +58,19 @@ public class RestController {
 	public Book getBookInJson(@PathVariable String name)
 	{
 		return new Book(name);
+	}
+	
+	/**
+	 * appPath/servletPath/rest/json/book 
+	 * 	POST	{"name":"dummyBookName"}
+	 * @param book
+	 * @return
+	 */
+	@RequestMapping(value="/json/book", method = RequestMethod.POST)
+	@ResponseBody
+	public String addBook(@RequestBody Book book)
+	{
+		System.out.println(book.getName());
+		return "success";
 	}
 }
