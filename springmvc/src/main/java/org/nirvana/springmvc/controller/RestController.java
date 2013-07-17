@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.nirvana.springmvc.domain.Book;
 import com.nirvana.springmvc.domain.Person;
 
 @Controller
@@ -31,16 +32,30 @@ public class RestController {
 	}
 	
 	/**
-	 * appPath/servletPath/rest/json/firstName/lastName
+	 * appPath/servletPath/rest/xml/firstName/lastName
 	 * 
 	 * @param firstname
 	 * @param lastname
 	 * @return
 	 */
-	@RequestMapping(value="/json/{firstname}/{lastname}", method = RequestMethod.GET)
+	@RequestMapping(value="/xml/{firstname}/{lastname}", method = RequestMethod.GET)
 	@ResponseBody
-	public Person getPersonInJson(@PathVariable String firstname, @PathVariable String lastname)
+	public Person getPersonInXml(@PathVariable String firstname, @PathVariable String lastname)
 	{
 		return new Person(firstname, lastname);
+	}
+	
+	/**
+	 * appPath/servletPath/rest/json/name
+	 * 
+	 * @param firstname
+	 * @param lastname
+	 * @return
+	 */
+	@RequestMapping(value="/json/{name}", method = RequestMethod.GET)
+	@ResponseBody
+	public Book getBookInJson(@PathVariable String name)
+	{
+		return new Book(name);
 	}
 }
