@@ -1,3 +1,1 @@
-
-authorized by
-berialcheng@gmail.com
+Composed by berialcheng, these projects are dedicated to be quick references. 
