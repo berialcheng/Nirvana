@@ -1,10 +1,12 @@
 set nocompatible
 
 set ruler
+set showcmd
 set bg=dark
 set number
 syntax on
 set hlsearch
+set incsearch
 set cursorline
 
 " Settings against the WinManager plugin
@@ -14,7 +16,7 @@ set cursorline
 
 " Settings against the NERDTree plugin 
 let NERDTreeShowHidden=1
-let NERDTreeWinSize=40
+let NERDTreeWinSize=30
 nmap <silent> wm :NERDTreeToggle<cr>
 
 " Settings against Netrw plugin
