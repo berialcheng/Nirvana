@@ -7,4 +7,8 @@ class HomeController {
     def test(){
     	sendMessage("seda:input" , "abc")
     }
+
+    def exception(){
+	sendMessage("seda:exception",params.exception)
+    }
 }
