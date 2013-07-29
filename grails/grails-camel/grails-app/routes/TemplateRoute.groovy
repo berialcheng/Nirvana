@@ -18,5 +18,21 @@ class TemplateRoute extends RouteBuilder {
         }
     	.to("velocity:letter.vm")
     	.to('stream:out')
+
+	from('seda:exception')
+		.doTry().process{
+			println 'try block..'
+			println it.getIn().getBody() 
+			if("true".equals(it.getIn().getBody()))
+				throw new Exception("Dummy exception")
+		}
+		.doCatch(Exception.class).process{
+			println 'exception block..'
+		}
+		.doFinally().process{
+			println 'finally block..'
+		}
+		.end()
+
     }
 }
