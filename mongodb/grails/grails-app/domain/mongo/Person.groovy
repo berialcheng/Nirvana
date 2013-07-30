@@ -5,6 +5,7 @@ class Person {
 	String name
 	Sex sex
 	Address address
+	Collection<Address> otherAddresses
 
     static constraints = {
     }
@@ -26,6 +27,6 @@ class Address{
 	String location
 
 	static constraints = {
-		location nullable:true
+		//location nullable:true
     }
 }

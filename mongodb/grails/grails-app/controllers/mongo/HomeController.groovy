@@ -19,8 +19,13 @@ class HomeController {
     	//p2.save()
     	//println p2.errors
     	/* embed add nullable constraint */
-    	def p2 = new Person(name:"Adrian",sex:Sex.MALE,address:new Address())
-    	p2.save()
-    	println p2.errors
+    	//def p2 = new Person(name:"Adrian",sex:Sex.MALE,address:new Address())
+    	//p2.save()
+    	//println p2.errors
+
+        /* embed list */
+        def p3 = new Person(name:"Adrian",sex:Sex.MALE,address:new Address(location:'dummy street'),otherAddresses:[new Address(location:'dummy street in list')])
+        p3.save()
+        println p3.errors
     }
 }
