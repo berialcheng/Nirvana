@@ -18,6 +18,7 @@ set cursorline
 let NERDTreeShowHidden=1
 let NERDTreeWinSize=30
 nmap <silent> wm :NERDTreeToggle<cr>
+nmap <silent> <F3> :NERDTreeToggle<cr>
 
 " Settings against Netrw plugin
 let g:netrw_banner=0
