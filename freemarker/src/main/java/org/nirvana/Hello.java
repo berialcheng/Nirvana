@@ -7,12 +7,12 @@ import java.util.Map;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 
-public class App 
+public class Hello 
 {
     public static void main( String[] args ) throws Exception
     {
     	Configuration cfg = new Configuration();
-        cfg.setClassForTemplateLoading(App.class,"/");
+        cfg.setClassForTemplateLoading(Hello.class,"/");
         Template temp = cfg.getTemplate("hello.ftl");
         Map<String,Object> model = new HashMap<String,Object>();
         model.put("username", "Adrian");
