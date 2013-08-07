@@ -5,6 +5,7 @@ target
 #file
 .classpath
 .project
+.swp
 
 
 ##Grails eclipse
