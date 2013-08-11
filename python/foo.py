@@ -1,0 +1,2 @@
+def showSomething():
+	return "something"
