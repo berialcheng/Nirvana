@@ -1,3 +1,6 @@
+/*
+ * collection clean up  
+ */
 db.system.js.save({
         _id:"cleanNonSystemCollections",
         value:function(){ 
