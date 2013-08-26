@@ -1,0 +1,16 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+HelloWorld	src/main/java/org/nirvana/webservice/HelloWorld.java	/^public interface HelloWorld {$/;"	i
+HelloWorldImpl	src/main/java/org/nirvana/webservice/HelloWorldImpl.java	/^public class HelloWorldImpl implements HelloWorld {$/;"	c
+ServiceTest	src/test/java/org/nirvana/webservice/ServiceTest.java	/^public class ServiceTest {$/;"	c
+org.nirvana.webservice	src/main/java/org/nirvana/webservice/HelloWorld.java	/^package org.nirvana.webservice;$/;"	p
+org.nirvana.webservice	src/main/java/org/nirvana/webservice/HelloWorldImpl.java	/^package org.nirvana.webservice;$/;"	p
+org.nirvana.webservice	src/test/java/org/nirvana/webservice/ServiceTest.java	/^package org.nirvana.webservice;$/;"	p
+sayHi	src/main/java/org/nirvana/webservice/HelloWorld.java	/^    String sayHi(String text);$/;"	m	interface:HelloWorld
+sayHi	src/main/java/org/nirvana/webservice/HelloWorldImpl.java	/^	public String sayHi(String text) {$/;"	m	class:HelloWorldImpl
+setUp	src/test/java/org/nirvana/webservice/ServiceTest.java	/^	public void setUp() throws Exception {$/;"	m	class:ServiceTest
+test	src/test/java/org/nirvana/webservice/ServiceTest.java	/^	public void test() {$/;"	m	class:ServiceTest

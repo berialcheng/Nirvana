@@ -1,4 +1,4 @@
 main:
-	gcc -Wall *.c -g
+	gcc -Wall *.c *.cpp -g
 clean: 
 	rm -f agent
