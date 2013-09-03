@@ -1,5 +1,6 @@
 package org.nirvana.springmvc.controller;
 
+import org.nirvana.springmvc.domain.Book;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -7,8 +8,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.support.SessionStatus;
-
-import com.nirvana.springmvc.domain.Book;
 
 @Controller
 @RequestMapping("/normal")

@@ -1,4 +1,4 @@
-package com.nirvana.springmvc.domain;
+package org.nirvana.springmvc.domain;
 
 public class Book {
 	private String name;
