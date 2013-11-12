@@ -10,7 +10,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -31,6 +33,12 @@ public class Person implements Serializable
 
     @OneToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.REMOVE}, mappedBy = "person", fetch = FetchType.LAZY)
     private Collection<Phone> phones;
+    
+    @OneToOne(cascade = { CascadeType.PERSIST})
+    private Address address; 
+    
+    @ManyToMany(cascade = {CascadeType.PERSIST})
+    private Collection<Club> clubs; 
 
     public Person()
     {
@@ -83,5 +91,21 @@ public class Person implements Serializable
     {
         this.id = id;
     }
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public Collection<Club> getClubs() {
+		return clubs;
+	}
+
+	public void setClubs(Collection<Club> clubs) {
+		this.clubs = clubs;
+	}
 
 }

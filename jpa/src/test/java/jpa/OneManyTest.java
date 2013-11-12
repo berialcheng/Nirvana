@@ -11,13 +11,14 @@ import org.junit.Test;
 import org.nirvana.jpa.domain.Person;
 import org.nirvana.jpa.domain.Phone;
 
-public class JpaTest
+public class OneManyTest
 {
-    EntityManagerFactory emf = Persistence.createEntityManagerFactory("Local_mysql");
+    private final static EntityManagerFactory emf = Persistence.createEntityManagerFactory("Local_mysql");
 
     @Test
     public void OneToMany()
-    {
+    {	
+		System.out.println(emf);
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
 
@@ -49,19 +50,20 @@ public class JpaTest
     @Test
     public void ManyToOne()
     {
+		System.out.println(emf);
         EntityManager em = emf.createEntityManager();
 
         Phone p = em.find(Phone.class, "123456");
         System.out.println(p.getPerson().getFirstName());
+        
+        for(Phone phone : p.getPerson().getPhones()){
+        	if(phone.getNumber().equalsIgnoreCase("654321")){
+        		em.remove(phone);
+        	}
+        }
+        em.merge(p.getPerson());
+        em.persist(p.getPerson());
 
         em.close();
     }
-
-    //@Test
-    public void test()
-    {
-        EntityManager em = emf.createEntityManager();
-    }
-
-
 }
