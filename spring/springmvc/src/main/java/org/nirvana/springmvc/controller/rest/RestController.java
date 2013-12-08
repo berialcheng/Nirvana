@@ -112,11 +112,13 @@ public class RestController {
 		return "success";
 	}
 
-	/*@ExceptionHandler(Exception.class)
+	/*
+	@ExceptionHandler(Exception.class)
 	@ResponseBody
 	public ModelMap exceptionHandler(HttpServletRequest request, Exception exception) {
 		return new ModelMap().addAttribute("request", request.getRequestURI())
 				.addAttribute("status", HttpStatus.INTERNAL_SERVER_ERROR.value())
 				.addAttribute("exception", exception.getMessage());
-	}*/
+	}
+	*/
 }

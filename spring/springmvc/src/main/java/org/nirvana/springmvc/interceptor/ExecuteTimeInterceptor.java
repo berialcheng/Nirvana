@@ -11,6 +11,7 @@ public class ExecuteTimeInterceptor extends HandlerInterceptorAdapter {
 	// before the actual handler will be executed
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler) throws Exception {
+		System.out.println("=========preHandle==========");
 
 		long startTime = System.currentTimeMillis();
 		request.setAttribute("startTime", startTime);
@@ -22,7 +23,7 @@ public class ExecuteTimeInterceptor extends HandlerInterceptorAdapter {
 	public void postHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
-
+		System.out.println("=========postHandle==========");
 		long startTime = (Long) request.getAttribute("startTime");
 
 		long endTime = System.currentTimeMillis();
@@ -31,6 +32,11 @@ public class ExecuteTimeInterceptor extends HandlerInterceptorAdapter {
 
 		// modified the exisitng modelAndView
 		modelAndView.addObject("executeTime", executeTime);
+	}
 
+	public void afterCompletion(HttpServletRequest request,
+			HttpServletResponse response, Object handler, Exception ex)
+			throws Exception {
+		System.out.println("=========afterCompletion==========");
 	}
 }
