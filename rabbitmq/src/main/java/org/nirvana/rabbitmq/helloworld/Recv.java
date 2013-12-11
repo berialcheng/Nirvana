@@ -10,7 +10,6 @@ public class Recv {
 
 	public static void main(String[] argv) throws java.io.IOException,
 			java.lang.InterruptedException {
-
 		ConnectionFactory factory = new ConnectionFactory();
 		factory.setHost("localhost");
 		Connection connection = factory.newConnection();
