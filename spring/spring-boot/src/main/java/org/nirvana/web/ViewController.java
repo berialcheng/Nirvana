@@ -1,7 +1,9 @@
 package org.nirvana.web;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.nirvana.domain.Product;
 import org.nirvana.service.MessageService;
@@ -62,8 +64,16 @@ public class ViewController {
 		allProducts.add(product1);
 		allProducts.add(product2);
 		
+		Map complexMap = new HashMap();
+		complexMap.put("a", "a_result");
+		Map map_b= new HashMap();
+		map_b.put("c", "c_result");
+		complexMap.put("b", map_b);
+		complexMap.put("d", new HashMap().put("e.f", "e.f_result"));
+		
 		model.addAttribute("allProducts", allProducts);
-		model.addAttribute("msgs", messageService);	
+		model.addAttribute("msgs", messageService);
+		model.addAttribute("complexMap", complexMap);
 		
         return "decorator_view";
     }

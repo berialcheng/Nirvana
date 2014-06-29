@@ -20,6 +20,9 @@
 				</tr>
 			</tbody>
 		</table>
+		<div th:text="${complexMap['a']}">Oranges</div>
+		<div th:text="${complexMap}">banana</div>
+		<div th:text='${complexMap.get("b").get("e.f")}'>Orange</div>
     </div>
 </body>
 </html>
