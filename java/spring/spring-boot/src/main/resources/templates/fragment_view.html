@@ -1,0 +1,24 @@
+<html xmlns:th="http://www.thymeleaf.org"
+	th:include="layouts/fragment_layout :: page">
+<head>
+<title>Thymeleaf HelloWorld</title>
+</head>
+<body>
+	<div th:fragment="content">
+		<table>
+			<thead>
+				<tr>
+					<th th:text="${msgs.method1()}">Name</th>
+					<th th:text="${msgs.method2().name}">Price</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="prod : ${allProducts}">
+					<td th:text="${prod.name}">Oranges</td>
+					<td th:text="${#numbers.formatDecimal(prod.price,1,2)}">0.99</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
