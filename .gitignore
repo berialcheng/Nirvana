@@ -1,14 +1,14 @@
-#folder
-.settings
-target
+# vim
+*.swp
 
-#file
+# Python
+*.pyc
+
+# Eclipse
+.settings
 .classpath
 .project
-.swp
-.pyc
-
-##Grails eclipse
+target
 target-eclipse
 
 # IDEA artifacts 

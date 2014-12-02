@@ -1,1 +1,1 @@
-> Composed by berialcheng, these projects are dedicated to be quick references only. 
+> Composed by berialcheng, these projects are dedicated to be quick references only. Most of them are merely HelloWorld-like examples.
