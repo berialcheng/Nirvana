@@ -1,1 +1,1 @@
-Composed by berialcheng, these projects are dedicated to be quick references. 
+> Composed by berialcheng, these projects are dedicated to be quick references only. 
