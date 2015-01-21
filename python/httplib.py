@@ -1,11 +1,13 @@
+import urllib2
+
 if __name__ == '__main__':
 	url = raw_input("Target url:")
-	import httplib
-	conn = httplib.HTTPConnection(url)
+	urllib2.Request(url)
 	conn.request("GET", "")
-	resp = conn.getresponse()
+	response = conn.getresponse()
 	print '=============HEAD==============='
-	for header in resp.getheaders():
+	for header in response.getheaders():
 		print header
 	print '=============BODY==============='
-	print resp.read()
+	print response.read()
+	conn.close()
