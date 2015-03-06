@@ -8,6 +8,6 @@ setup(name='black_cat',
       description = 'a demo for python package management',
       install_requires=[
           'cat',
-          'jsonschema',
+          'jsonschema==2.3.0',
       ],
       )
