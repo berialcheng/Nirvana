@@ -23,13 +23,15 @@ public class SSEServlet extends HttpServlet {
 	        for(int i=0; i<10; i++) {
 	 
 	            writer.write("data: "+ System.currentTimeMillis() +"\n\n");
+	            response.flushBuffer();
 	 
 	            try {
-	                Thread.sleep(1000);
+	                Thread.sleep(3000);
 	            } catch (InterruptedException e) {
 	                e.printStackTrace();
 	            }
 	        }
+	        
 	        writer.close();
 	    }
 }
