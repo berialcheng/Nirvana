@@ -15,3 +15,6 @@ target-eclipse
 *.iml
 *.ipr
 *.iws
+
+# OSX
+.DS_Store
