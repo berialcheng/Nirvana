@@ -427,10 +427,12 @@
         // https://bugzilla.mozilla.org/show_bug.cgi?id=428916
         //xhr.setRequestHeader("Cache-Control", "no-cache");
         xhr.setRequestHeader("Accept", "text/event-stream");
+        xhr.setRequestHeader("Accept", "text/event-stream");
         // Request header field Last-Event-ID is not allowed by Access-Control-Allow-Headers.
         xhr.setRequestHeader("Last-Event-ID", lastEventId);
 
         // Add the headers to the transport.
+        console.log(headers)
         if (Object.getOwnPropertyNames(headers).length !== 0) {
           var headerKeys = Object.keys(headers);
           for (var i = 0; i < headerKeys.length; i++) {

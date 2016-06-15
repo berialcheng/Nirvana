@@ -11,10 +11,11 @@
 target
 target-eclipse
 
-# IDEA artifacts 
+# IDEA artifacts
 *.iml
 *.ipr
 *.iws
+.idea
 
 # OSX
 .DS_Store
