@@ -10,6 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -26,8 +27,11 @@ public class WebDriverTest {
         //System.setProperty("webdriver.firefox.bin", "D:/Program Files/Mozilla firefox/firefox.exe");
         //driver = new FirefoxDriver();
 
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\zhongch\\Desktop\\chromedriver_win32\\chromedriver.exe");
-        driver = new ChromeDriver();
+        //System.setProperty("webdriver.chrome.driver", "C:\\Users\\zhongch\\Desktop\\chromedriver_win32\\chromedriver.exe");
+        //driver = new ChromeDriver();
+
+        System.setProperty("phantomjs.binary.path", "C:\\Users\\zhongch\\Desktop\\phantomjs-2.1.1-windows\\phantomjs-2.1.1-windows\\bin\\phantomjs.exe");
+        driver = new PhantomJSDriver();
 
         //driver = new HtmlUnitDriver();
     }
@@ -42,8 +46,8 @@ public class WebDriverTest {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(new ExpectedCondition<Boolean>() {
             public Boolean apply(WebDriver webDriver) {
-
-                return driver.findElement(By.name("wd");
+                driver.findElement(By.name("wd"));
+                return Boolean.TRUE;
             }
         });
 
