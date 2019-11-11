@@ -5,6 +5,9 @@ public class User {
     private String name;
     private String message;
 
+    public User() {
+    }
+
     private User(Builder builder) {
         setName(builder.name);
         setMessage(builder.message);

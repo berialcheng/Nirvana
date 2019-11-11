@@ -15,6 +15,11 @@ public class Consumer {
 
     @KafkaListener(topics = "users", groupId = "template_group")
     public void consume(User user) throws IOException {
-        logger.info(String.format("#### -> Consumed message -> %s", user.getMessage()));
+        logger.info(String.format("#### -> Consumed message -> %s : %s", user.getName(), user.getMessage()));
+    }
+
+    @KafkaListener(topics = "users2", groupId = "template2_group")
+    public void consume2(User user) throws IOException {
+        logger.info(String.format("#### -> Consumed message -> %s : %s", user.getName(), user.getMessage()));
     }
 }
