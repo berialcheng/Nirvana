@@ -41,9 +41,10 @@ public class Producer {
         KafkaProducer<String, String> producer = new KafkaProducer
                 <String, String>(props);
 
-        for(int i = 0; i < 10; i++)
+        for(int i = 0; i < 10; i++) {
             producer.send(new ProducerRecord<String, String>(topicName,
                     Integer.toString(i), Integer.toString(i)));
+        }
         System.out.println("Message sent successfully");
         producer.close();
     }

@@ -20,3 +20,9 @@ logging:
   console: "%d{yyyy-MM-dd HH:mm:ss.SSS} | %12.12thread | %5p | %logger{16}:%L | %m%n"
   level:
     org.apache.kafka.clients: ERROR
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
