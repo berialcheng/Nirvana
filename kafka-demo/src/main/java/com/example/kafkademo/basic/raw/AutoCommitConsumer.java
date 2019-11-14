@@ -7,7 +7,7 @@ import org.apache.kafka.clients.consumer.KafkaConsumer;
 import java.util.Arrays;
 import java.util.Properties;
 
-public class Consumer {
+public class AutoCommitConsumer {
 
     public void consume(){
         //Kafka consumer configuration settings
@@ -44,6 +44,6 @@ public class Consumer {
     }
 
     public static void main(String[] args) {
-        new Consumer().consume();
+        new AutoCommitConsumer().consume();
     }
 }

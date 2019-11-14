@@ -4,10 +4,13 @@ import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 
+import java.time.Duration;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Properties;
 
-public class NonAutoCommitConsumer {
+public class ManualCommitConsumer {
 
     public void consume(){
         //Kafka consumer configuration settings
@@ -19,7 +22,7 @@ public class NonAutoCommitConsumer {
         props.put("enable.auto.commit", "false");
         props.put("auto.offset.reset", "earliest");
         props.put("max.poll.records", "5");
-        props.put("auto.commit.interval.ms", "1000");
+        //props.put("auto.commit.interval.ms", "1000");
         props.put("session.timeout.ms", "30000");
         props.put("max.poll.interval.ms", "300000");
         props.put("key.deserializer",
@@ -37,18 +40,32 @@ public class NonAutoCommitConsumer {
         System.out.println("Subscribed to topic " + topicName);
         int i = 0;
 
+        final int minBatchSize = 1;
+        List<ConsumerRecord<String, String>> buffer = new ArrayList<>();
+
         while (true) {
-            ConsumerRecords<String, String> records = consumer.poll(100);
+            //ConsumerRecords<String, String> records = consumer.poll(100);
+            ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(100));
             for (ConsumerRecord<String, String> record : records) {
                 // print the offset,key and value for the consumer records.
                 System.out.printf("offset = %d, key = %s, value = %s\n",
                         record.offset(), record.key(), record.value());
+                buffer.add(record);
             }
-//            consumer.commitSync();
+
+//            if (buffer.size() >= minBatchSize) {
+//                consumer.commitSync();
+//                buffer.clear();
+//            }
+
+            if (buffer.size() >= minBatchSize) {
+                continue;
+                //buffer.clear();
+            }
         }
     }
 
     public static void main(String[] args) {
-        new NonAutoCommitConsumer().consume();
+        new ManualCommitConsumer().consume();
     }
 }
